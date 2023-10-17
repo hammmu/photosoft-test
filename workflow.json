@@ -1,14 +1,76 @@
 {
-  "3": {
+  "4": {
     "inputs": {
-      "seed": 740593329207015,
-      "steps": 20,
-      "cfg": 8,
-      "sampler_name": "euler",
-      "scheduler": "normal",
-      "denoise": 1,
+      "ckpt_name": "realisticStockPhoto_v10.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 4
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "6": {
+    "inputs": {
+      "text": "8k Linkedin professional photo of a man in a suit with studio lighting, bokeh, corporate portrait headshot photograph best corporate photo winner, meticulous detail, hyperrealistic, centered uncropped symmetrical beautiful.",
+      "clip": [
+        "33",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "25",
+        0
+      ],
+      "clip": [
+        "33",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "10": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "13": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 337625777870432,
+      "steps": 12,
+      "cfg": 3,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "start_at_step": 0,
+      "end_at_step": 10,
+      "return_with_leftover_noise": "enable",
       "model": [
-        "4",
+        "33",
         0
       ],
       "positive": [
@@ -24,63 +86,177 @@
         0
       ]
     },
-    "class_type": "KSampler"
+    "class_type": "KSamplerAdvanced"
   },
-  "4": {
+  "14": {
     "inputs": {
-      "ckpt_name": "SD1-5/revAnimated_v122EOL.safetensors"
+      "add_noise": "disable",
+      "noise_seed": 280196456598738,
+      "steps": 12,
+      "cfg": 7.5,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "start_at_step": 10,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "32",
+        0
+      ],
+      "positive": [
+        "17",
+        0
+      ],
+      "negative": [
+        "18",
+        0
+      ],
+      "latent_image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced"
+  },
+  "15": {
+    "inputs": {
+      "ckpt_name": "sd_xl_refiner_1.0.safetensors"
     },
     "class_type": "CheckpointLoaderSimple"
   },
-  "5": {
+  "16": {
     "inputs": {
-      "width": 512,
-      "height": 512,
-      "batch_size": 1
+      "vae_name": "sdxl_vae.safetensors"
     },
-    "class_type": "EmptyLatentImage"
+    "class_type": "VAELoader"
   },
-  "6": {
+  "17": {
     "inputs": {
-      "text": "beautiful scenery nature glass bottle landscape, purple galaxy bottle",
+      "text": "8k Linkedin professional photo of a man in a suit with studio lighting, bokeh, corporate portrait headshot photograph best corporate photo winner, meticulous detail, hyperrealistic, centered uncropped symmetrical beautiful.",
       "clip": [
-        "4",
+        "34",
         1
       ]
     },
     "class_type": "CLIPTextEncode"
   },
-  "7": {
+  "18": {
     "inputs": {
-      "text": "text, watermark",
-      "clip": [
-        "4",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode"
-  },
-  "8": {
-    "inputs": {
-      "samples": [
-        "3",
+      "text": [
+        "31",
         0
       ],
-      "vae": [
-        "4",
-        2
+      "clip": [
+        "34",
+        1
       ]
     },
-    "class_type": "VAEDecode"
+    "class_type": "CLIPTextEncode"
   },
-  "9": {
+  "25": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
-      "images": [
-        "8",
+      "embedding": "UnrealisticDream.pt",
+      "emphasis": 1.3,
+      "append": true,
+      "text": [
+        "30",
         0
       ]
     },
-    "class_type": "SaveImage"
+    "class_type": "EmbeddingPicker"
+  },
+  "26": {
+    "inputs": {
+      "embedding": "UnrealisticDream.pt",
+      "emphasis": 1.3,
+      "append": true,
+      "text": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "EmbeddingPicker"
+  },
+  "28": {
+    "inputs": {
+      "lora_name": "detailed-eyes.safetensors",
+      "strength_model": 0.9500000000000001,
+      "strength_clip": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoader"
+  },
+  "30": {
+    "inputs": {
+      "embedding": "bad-hands-5.pt",
+      "emphasis": 0.8,
+      "append": true,
+      "text": ""
+    },
+    "class_type": "EmbeddingPicker"
+  },
+  "31": {
+    "inputs": {
+      "embedding": "bad-hands-5.pt",
+      "emphasis": 0.8,
+      "append": true,
+      "text": ""
+    },
+    "class_type": "EmbeddingPicker"
+  },
+  "32": {
+    "inputs": {
+      "lora_name": "detailed-eyes.safetensors",
+      "strength_model": 0.9500000000000001,
+      "strength_clip": 1,
+      "model": [
+        "15",
+        0
+      ],
+      "clip": [
+        "15",
+        1
+      ]
+    },
+    "class_type": "LoraLoader"
+  },
+  "33": {
+    "inputs": {
+      "lora_name": "polyhedron_new_skin_v1.1.safetensors",
+      "strength_model": 0.25,
+      "strength_clip": 1,
+      "model": [
+        "28",
+        0
+      ],
+      "clip": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "LoraLoader"
+  },
+  "34": {
+    "inputs": {
+      "lora_name": "polyhedron_new_skin_v1.1.safetensors",
+      "strength_model": 0.25,
+      "strength_clip": 1,
+      "model": [
+        "32",
+        0
+      ],
+      "clip": [
+        "32",
+        1
+      ]
+    },
+    "class_type": "LoraLoader"
   }
 }
