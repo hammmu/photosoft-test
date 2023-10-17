@@ -18,5 +18,5 @@ def queue_prompt(prompt_workflow):
 prompt_workflow = json.load(open('workflow.json'))
 try:
     queue_prompt(prompt_workflow)
-catch Exception as e:
+except Exception as e:
     print(e)
