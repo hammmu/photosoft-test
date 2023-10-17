@@ -15,7 +15,7 @@ def queue_prompt(prompt_workflow):
 
 # read workflow api data from file and convert it into dictionary 
 # assign to var prompt_workflow
-prompt_workflow = json.load(open('workflow_api.json'))
+prompt_workflow = json.load(open('workflow.json'))
 
 # create a list of prompts
 prompt_list = []
