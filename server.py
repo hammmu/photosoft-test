@@ -16,4 +16,4 @@ def queue_prompt(prompt_workflow):
 
 prompt_workflow = json.load(open('workflow.json'))
 queue_prompt(prompt_workflow)
-time.sleep(15)
+time.sleep(25)
