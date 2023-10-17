@@ -1,7 +1,7 @@
 import json
 from urllib import request, parse
 import random
-
+import time
 # ======================================================================
 # This function sends a prompt workflow to the specified URL 
 # (http://127.0.0.1:8188/prompt) and queues it on the ComfyUI server
@@ -16,3 +16,4 @@ def queue_prompt(prompt_workflow):
 
 prompt_workflow = json.load(open('workflow.json'))
 queue_prompt(prompt_workflow)
+time.sleep(15)
