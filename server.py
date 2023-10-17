@@ -63,4 +63,8 @@ for index, prompt in enumerate(prompt_list):
   save_image_node["inputs"]["filename_prefix"] = fileprefix
 
   # everything set, add entire workflow to queue.
-  queue_prompt(prompt_workflow)
+  try:
+    queue_prompt(prompt_workflow)
+  except Exception as e:
+    print("error")
+    print(e)
