@@ -1,3 +1,4 @@
+import sys
 import json
 from urllib import request, parse
 import random
@@ -13,8 +14,10 @@ def queue_prompt(prompt_workflow):
     return json.loads(request.urlopen(req).read())
 # ======================================================================
 
-
+prompt_text = sys.argv[0]
 prompt_workflow = json.load(open('workflow.json'))
+prompt_workflow['6']['inputs']['text'] = prompt_text
+prompt_workflow['17']['inputs']['text'] = prompt_text
 print(queue_prompt(prompt_workflow))
 time.sleep(25)
 
