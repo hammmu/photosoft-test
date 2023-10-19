@@ -14,7 +14,7 @@ def queue_prompt(prompt_workflow):
     return json.loads(request.urlopen(req).read())
 # ======================================================================
 
-prompt_text = sys.argv[0]
+prompt_text = sys.argv[1]
 print(prompt_text)
 prompt_workflow = json.load(open('workflow.json'))
 prompt_workflow['6']['inputs']['text'] = prompt_text
